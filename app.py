@@ -1,8 +1,8 @@
+
 import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-# ✅ This MUST be the first Streamlit call
 st.set_page_config(page_title="Editor Finance Dashboard", layout="wide")
 
 @st.cache_data
@@ -28,7 +28,6 @@ if not month_summary.empty:
 else:
     st.info("No summary for this month yet. Add income and expenses to update.")
 
-# Tabs
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "📁 Projects", "💳 EMIs", "🏦 Loans", "⚙️ Bike Service", "🛢️ Fuel", "📶 Bills"
 ])
@@ -66,7 +65,6 @@ with tab6:
     if st.button("✅ Mark Mobile/Broadband Bill Paid"):
         st.success("Payment recorded!")
 
-# Sidebar backup button
 st.sidebar.header("📤 Monthly Backup")
 st.sidebar.markdown("Backup occurs automatically on the 1st of each month.")
 if st.sidebar.button("📥 Manual Backup Now"):
